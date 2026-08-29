@@ -23,6 +23,7 @@ export async function POST(request: Request) {
     const prompt = `
 You are an expert assessment grader and AI extraction tool.
 Your task is to analyze the extracted text from a Question Paper and a Student's Answer Sheet, and map the answers to the questions.
+CRITICAL: You MUST extract EVERY SINGLE question present in the Question Paper text, even if the student did not answer it. Do not truncate or summarize the list of questions.
 
 IMPORTANT: The response MUST be a valid JSON object following this EXACT structure without any markdown formatting or extra text:
 {
@@ -63,6 +64,7 @@ ${ansSummary}
       ],
       model: 'openai/gpt-oss-120b',
       temperature: 0.1,
+      max_tokens: 4096,
       response_format: { type: 'json_object' }
     });
 
