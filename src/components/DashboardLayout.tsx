@@ -21,12 +21,12 @@ import { cn } from '@/lib/utils';
 
 export function DashboardLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  const [isSidebarOpen, setSidebarOpen] = useState(false);
+  const [isSidebarManualCollapse, setSidebarManualCollapse] = useState(false);
   const isResults = pathname === '/results';
   const isProcessing = pathname === '/processing';
 
   // Determine if sidebar should be collapsed
-  const isCollapsed = isResults || isProcessing;
+  const isCollapsed = isResults || isProcessing || isSidebarManualCollapse;
 
   const navItems = [
     { icon: LayoutGrid, label: 'Home', href: '#' },
@@ -44,14 +44,18 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
         "hidden md:flex flex-col bg-white border-r border-slate-200 transition-all duration-300 relative",
         isCollapsed ? "w-[80px] items-center" : "w-[260px]"
       )}>
-        <div className="p-6 flex items-center justify-between">
+        <div className="p-6 flex items-center justify-between w-full">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 bg-[#1C1C1C] rounded-md flex items-center justify-center text-white font-bold text-xl">
+            <div className="w-8 h-8 bg-[#1C1C1C] rounded-md flex items-center justify-center text-white font-bold text-xl shrink-0">
               V
             </div>
-            {!isCollapsed && <span className="font-bold text-xl tracking-tight text-slate-900">VedaAI</span>}
+            {!isCollapsed && <span className="font-bold text-xl tracking-tight text-slate-900 whitespace-nowrap">VedaAI</span>}
           </div>
-          {!isCollapsed && <Sidebar className="w-5 h-5 text-slate-400 cursor-pointer" />}
+          <Sidebar 
+            onClick={() => setSidebarManualCollapse(!isSidebarManualCollapse)}
+            className="w-5 h-5 text-slate-400 cursor-pointer hover:text-slate-900 transition-colors shrink-0" 
+            title="Toggle Sidebar"
+          />
         </div>
 
         {!isCollapsed && (
