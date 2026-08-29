@@ -51,11 +51,12 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
             </div>
             {!isCollapsed && <span className="font-bold text-xl tracking-tight text-slate-900 whitespace-nowrap">VedaAI</span>}
           </div>
-          <Sidebar 
-            onClick={() => setSidebarManualCollapse(!isSidebarManualCollapse)}
-            className="w-5 h-5 text-slate-400 cursor-pointer hover:text-slate-900 transition-colors shrink-0" 
-            title="Toggle Sidebar"
-          />
+          <div title="Toggle Sidebar" className="shrink-0">
+            <Sidebar 
+              onClick={() => setSidebarManualCollapse(!isSidebarManualCollapse)}
+              className="w-5 h-5 text-slate-400 cursor-pointer hover:text-slate-900 transition-colors" 
+            />
+          </div>
         </div>
 
         {!isCollapsed && (
@@ -159,12 +160,16 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
             </div>
             
             <div className="flex items-center gap-5">
-              <HelpCircle className="w-5 h-5 text-slate-600 opacity-50 cursor-not-allowed" title="Not implemented in this demo" />
+              <div title="Not implemented in this demo">
+                <HelpCircle className="w-5 h-5 text-slate-600 opacity-50 cursor-not-allowed" />
+              </div>
               <div className="relative opacity-50 cursor-not-allowed" title="Not implemented in this demo">
                 <Bell className="w-5 h-5 text-slate-600" />
                 <div className="absolute 0 right-0 w-2 h-2 bg-orange-500 rounded-full border border-white"></div>
               </div>
-              <Sparkles className="w-5 h-5 text-slate-600 opacity-50 cursor-not-allowed" title="Not implemented in this demo" />
+              <div title="Not implemented in this demo">
+                <Sparkles className="w-5 h-5 text-slate-600 opacity-50 cursor-not-allowed" />
+              </div>
               <div className="flex items-center gap-2 p-1 rounded-lg opacity-50 cursor-not-allowed" title="Not implemented in this demo">
                 <div className="w-8 h-8 bg-slate-200 rounded-full overflow-hidden">
                   <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Jane&backgroundColor=transparent" alt="Madhur" />
