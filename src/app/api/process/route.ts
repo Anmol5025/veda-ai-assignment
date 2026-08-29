@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import Groq from 'groq-sdk';
 
-export const maxDuration = 60; // Allow Vercel function to run for up to 60 seconds
+export const runtime = 'edge';
 
 export async function POST(request: Request) {
   try {
