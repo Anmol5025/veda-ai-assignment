@@ -146,8 +146,10 @@ export default function Home() {
           onClick={handleStartMapping}
           disabled={!isReady || isNavigating}
           className={cn(
-            "rounded-full px-8 py-6 text-lg font-medium transition-all w-64 active:scale-95",
-            isReady && !isNavigating ? "bg-[#1C1C1C] hover:bg-black text-white" : "bg-slate-300 text-slate-50 hover:bg-slate-300"
+            "rounded-full px-8 py-6 text-lg font-medium transition-all w-64",
+            isReady && !isNavigating 
+              ? "bg-[#1C1C1C] hover:bg-black text-white active:scale-95 shadow-md hover:shadow-lg" 
+              : "bg-slate-200 text-slate-400 opacity-80 cursor-not-allowed"
           )}
         >
           {isNavigating ? (

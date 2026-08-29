@@ -124,21 +124,21 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
       {/* Mobile Topbar */}
       <div className="md:hidden flex items-center justify-between p-4 bg-white border-b absolute top-0 left-0 right-0 z-50">
         <div className="flex items-center gap-3">
-          <ChevronLeft className="w-5 h-5" />
+          <ChevronLeft className="w-5 h-5 opacity-50 cursor-not-allowed" />
           <div className="flex items-center gap-2">
             <div className="w-6 h-6 bg-black rounded flex items-center justify-center text-white font-bold text-xs">V</div>
             <span className="font-bold">VedaAI</span>
           </div>
         </div>
         <div className="flex items-center gap-4">
-          <div className="relative">
+          <div className="relative opacity-50 cursor-not-allowed">
             <Bell className="w-5 h-5 text-slate-600" />
             <div className="absolute top-0 right-0 w-2 h-2 bg-orange-500 rounded-full border border-white"></div>
           </div>
-          <div className="w-7 h-7 bg-slate-200 rounded-full overflow-hidden">
+          <div className="w-7 h-7 bg-slate-200 rounded-full overflow-hidden opacity-50 cursor-not-allowed">
             <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Felix" alt="Avatar" />
           </div>
-          <Menu className="w-6 h-6 text-slate-600" />
+          <Menu className="w-6 h-6 text-slate-600 opacity-50 cursor-not-allowed" />
         </div>
       </div>
 
@@ -155,13 +155,13 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
             </div>
             
             <div className="flex items-center gap-5">
-              <HelpCircle className="w-5 h-5 text-slate-600 cursor-pointer" />
-              <div className="relative cursor-pointer">
+              <HelpCircle className="w-5 h-5 text-slate-600 opacity-50 cursor-not-allowed" title="Not implemented in this demo" />
+              <div className="relative opacity-50 cursor-not-allowed" title="Not implemented in this demo">
                 <Bell className="w-5 h-5 text-slate-600" />
                 <div className="absolute 0 right-0 w-2 h-2 bg-orange-500 rounded-full border border-white"></div>
               </div>
-              <Sparkles className="w-5 h-5 text-slate-600 cursor-pointer" />
-              <div className="flex items-center gap-2 cursor-pointer hover:bg-black/5 p-1 rounded-lg">
+              <Sparkles className="w-5 h-5 text-slate-600 opacity-50 cursor-not-allowed" title="Not implemented in this demo" />
+              <div className="flex items-center gap-2 p-1 rounded-lg opacity-50 cursor-not-allowed" title="Not implemented in this demo">
                 <div className="w-8 h-8 bg-slate-200 rounded-full overflow-hidden">
                   <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Jane&backgroundColor=transparent" alt="Madhur" />
                 </div>
